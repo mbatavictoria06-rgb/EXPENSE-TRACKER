@@ -9,69 +9,101 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
+      background: #fce4ec;
+      color: #1e293b;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 16px;
+      padding: 20px;
     }
 
     .container {
-      background: #1e293b;
-      border-radius: 16px;
+      background: #fff;
+      border-radius: 20px;
       padding: 32px;
       width: 100%;
       max-width: 960px;
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,.5);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
     }
 
-    h1 {
-      font-size: 1.5rem;
-      font-weight: 600;
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       margin-bottom: 24px;
-      color: #f8fafc;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
       letter-spacing: -0.02em;
+    }
+
+    .total-box {
+      background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+      border-radius: 14px;
+      padding: 14px 24px;
+      text-align: center;
+      min-width: 200px;
+      box-shadow: 0 2px 12px rgba(233,30,99,0.12);
+    }
+
+    .total-box .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #880e4f;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .total-box .amount {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #880e4f;
     }
 
     .add-form {
       display: flex;
-      gap: 12px;
-      margin-bottom: 24px;
+      gap: 10px;
+      margin-bottom: 28px;
       flex-wrap: wrap;
     }
 
     .add-form input {
-      flex: 1 1 200px;
-      padding: 10px 14px;
-      border: 1px solid #334155;
-      border-radius: 8px;
-      background: #0f172a;
-      color: #e2e8f0;
+      flex: 1 1 180px;
+      padding: 11px 14px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      background: #f8fafc;
+      color: #1e293b;
       font-size: 0.95rem;
       outline: none;
       transition: border-color .2s;
     }
 
-    .add-form input:focus { border-color: #3b82f6; }
+    .add-form input:focus { border-color: #e91e63; }
 
-    .add-form input::placeholder { color: #64748b; }
+    .add-form input::placeholder { color: #94a3b8; }
 
     .add-form button {
-      padding: 10px 24px;
-      background: #3b82f6;
+      padding: 11px 28px;
+      background: #e91e63;
       color: #fff;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 0.95rem;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
-      transition: background .2s;
+      transition: background .2s, transform .1s;
       white-space: nowrap;
     }
 
-    .add-form button:hover { background: #2563eb; }
+    .add-form button:hover { background: #c2185b; }
+    .add-form button:active { transform: scale(0.97); }
 
     .layout {
       display: flex;
@@ -84,72 +116,118 @@
       min-width: 0;
     }
 
-    .summary {
+    .side-card {
       flex: 1;
-      min-width: 200px;
-      background: #0f172a;
-      border-radius: 12px;
+      min-width: 160px;
+      background: #f8fafc;
+      border-radius: 14px;
       padding: 20px;
       text-align: center;
+      border: 1px solid #f1f5f9;
       position: sticky;
       top: 16px;
     }
 
-    .summary-label {
-      font-size: 0.85rem;
+    .side-card .label {
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #94a3b8;
-      margin-bottom: 8px;
-    }
-
-    .summary-total {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #f8fafc;
-    }
-
-    .summary-count {
-      font-size: 0.85rem;
+      letter-spacing: 0.06em;
       color: #64748b;
-      margin-top: 8px;
+      font-weight: 600;
+    }
+
+    .side-card .count {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-top: 6px;
+    }
+
+    .side-card .sub {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-top: 4px;
     }
 
     .empty-msg {
       text-align: center;
-      color: #64748b;
-      padding: 32px 16px;
+      color: #94a3b8;
+      padding: 48px 16px;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .empty-msg span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 12px;
     }
 
     .expense-item {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 12px 16px;
-      background: #0f172a;
-      border-radius: 8px;
-      margin-bottom: 8px;
-      gap: 12px;
+      gap: 14px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: opacity .35s ease, transform .35s ease, box-shadow .35s ease;
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .expense-item.fading-out {
+      opacity: 0;
+      transform: translateX(30px);
+      pointer-events: none;
+    }
+
+    .expense-item.highlight {
+      animation: flashHighlight .6s ease;
+    }
+
+    @keyframes flashHighlight {
+      0%   { box-shadow: 0 0 0 4px rgba(76,175,80,0.35), 0 2px 8px rgba(0,0,0,0.06); transform: scale(1.02); }
+      70%  { box-shadow: 0 0 0 4px rgba(76,175,80,0.35), 0 2px 8px rgba(0,0,0,0.06); }
+      100% { box-shadow: 0 2px 8px rgba(0,0,0,0.06); transform: scale(1); }
+    }
+
+    .expense-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.04);
     }
 
     .expense-info {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      min-width: 0;
       flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 4px 12px;
     }
 
     .expense-name {
-      font-weight: 500;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .expense-date {
+      font-size: 0.78rem;
+      color: #64748b;
     }
 
     .expense-amount {
-      color: #94a3b8;
-      white-space: nowrap;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #1e293b;
+      margin-left: auto;
     }
 
     .delete-btn {
@@ -157,27 +235,35 @@
       border: none;
       color: #ef4444;
       cursor: pointer;
-      font-size: 1.1rem;
-      padding: 4px 8px;
-      border-radius: 6px;
+      font-size: 1.15rem;
+      padding: 4px 10px;
+      border-radius: 8px;
       transition: background .2s;
       line-height: 1;
       flex-shrink: 0;
     }
 
-    .delete-btn:hover { background: #450a0a; }
+    .delete-btn:hover { background: #fef2f2; }
 
     @media (max-width: 640px) {
-      .container { padding: 16px; }
+      .container { padding: 18px; }
+      .header { flex-direction: column; align-items: stretch; }
+      .total-box { width: 100%; }
       .layout { flex-direction: column; }
-      .summary { position: static; width: 100%; }
+      .side-card { position: static; width: 100%; }
       .add-form input { flex: 1 1 100%; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Expense Tracker</h1>
+    <div class="header">
+      <h1>Expense Tracker</h1>
+      <div class="total-box">
+        <div class="label">Total Spent</div>
+        <div class="amount" id="totalDisplay">₦0.00</div>
+      </div>
+    </div>
 
     <form class="add-form" id="addForm">
       <input type="text" id="nameInput" placeholder="Expense name" required autocomplete="off">
@@ -187,14 +273,17 @@
 
     <div class="layout">
       <div class="list-section" id="listSection">
-        <div class="empty-msg" id="emptyMsg">No expenses added yet</div>
+        <div class="empty-msg" id="emptyMsg">
+          <span>&#128202;</span>
+          No expenses yet.<br>Start tracking your spending!
+        </div>
         <div id="expenseList"></div>
       </div>
 
-      <div class="summary">
-        <div class="summary-label">Total</div>
-        <div class="summary-total" id="totalDisplay">₦0.00</div>
-        <div class="summary-count" id="countDisplay">0 items</div>
+      <div class="side-card">
+        <div class="label">Items</div>
+        <div class="count" id="countDisplay">0</div>
+        <div class="sub" id="subDisplay">expenses logged</div>
       </div>
     </div>
   </div>
@@ -207,14 +296,37 @@
     const emptyMsg = document.getElementById('emptyMsg');
     const totalDisplay = document.getElementById('totalDisplay');
     const countDisplay = document.getElementById('countDisplay');
+    const subDisplay = document.getElementById('subDisplay');
 
     let expenses = [];
+    let nextId = 1;
 
     function formatNaira(amount) {
       return '₦' + Number(amount).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
 
-    function render() {
+    function todayStr() {
+      const d = new Date();
+      const dd = String(d.getDate()).padStart(2, '0');
+      const mm = String(d.getMonth() + 1).padStart(2, '0');
+      const yyyy = d.getFullYear();
+      return dd + '/' + mm + '/' + yyyy;
+    }
+
+    function randomPastel() {
+      const h = Math.floor(Math.random() * 360);
+      return 'hsl(' + h + ', 40%, 92%)';
+    }
+
+    function updateSummary() {
+      const total = expenses.reduce((s, e) => s + e.amount, 0);
+      totalDisplay.textContent = formatNaira(total);
+      const n = expenses.length;
+      countDisplay.textContent = n;
+      subDisplay.textContent = n === 1 ? 'expense logged' : 'expenses logged';
+    }
+
+    function rebuildList() {
       expenseList.innerHTML = '';
 
       if (expenses.length === 0) {
@@ -223,33 +335,36 @@
         emptyMsg.style.display = 'none';
       }
 
-      let total = 0;
-
-      expenses.forEach((expense, index) => {
-        total += expense.amount;
-
-        const div = document.createElement('div');
-        div.className = 'expense-item';
-
-        div.innerHTML = `
-          <div class="expense-info">
-            <span class="expense-name">${escapeHtml(expense.name)}</span>
-            <span class="expense-amount">${formatNaira(expense.amount)}</span>
-          </div>
-          <button class="delete-btn" data-index="${index}" aria-label="Delete expense">&times;</button>
-        `;
-
-        expenseList.appendChild(div);
+      expenses.forEach(function(expense, index) {
+        const el = createCard(expense, index);
+        expenseList.appendChild(el);
       });
 
-      totalDisplay.textContent = formatNaira(total);
-      countDisplay.textContent = `${expenses.length} item${expenses.length !== 1 ? 's' : ''}`;
+      updateSummary();
+    }
+
+    function createCard(expense, index) {
+      const div = document.createElement('div');
+      div.className = 'expense-item';
+      div.style.background = expense.color;
+      div.dataset.id = expense.id;
+
+      div.innerHTML =
+        '<div class="expense-icon">&#128176;</div>' +
+        '<div class="expense-info">' +
+          '<span class="expense-name">' + escapeHtml(expense.name) + '</span>' +
+          '<span class="expense-date">' + expense.date + '</span>' +
+          '<span class="expense-amount">' + formatNaira(expense.amount) + '</span>' +
+        '</div>' +
+        '<button class="delete-btn" data-id="' + expense.id + '" aria-label="Delete expense">&times;</button>';
+
+      return div;
     }
 
     function escapeHtml(str) {
-      const div = document.createElement('div');
-      div.textContent = str;
-      return div.innerHTML;
+      var d = document.createElement('div');
+      d.textContent = str;
+      return d.innerHTML;
     }
 
     form.addEventListener('submit', function(e) {
@@ -259,8 +374,27 @@
 
       if (!name || isNaN(amount) || amount < 0) return;
 
-      expenses.push({ name, amount });
-      render();
+      const expense = {
+        id: nextId++,
+        name: name,
+        amount: amount,
+        date: todayStr(),
+        color: randomPastel()
+      };
+
+      expenses.push(expense);
+
+      emptyMsg.style.display = 'none';
+
+      const el = createCard(expense, expenses.length - 1);
+      expenseList.appendChild(el);
+
+      requestAnimationFrame(function() {
+        el.classList.add('highlight');
+      });
+
+      updateSummary();
+
       form.reset();
       nameInput.focus();
     });
@@ -268,9 +402,18 @@
     expenseList.addEventListener('click', function(e) {
       const btn = e.target.closest('.delete-btn');
       if (!btn) return;
-      const index = parseInt(btn.dataset.index);
-      expenses.splice(index, 1);
-      render();
+
+      const id = parseInt(btn.dataset.id);
+      const card = btn.closest('.expense-item');
+
+      card.classList.add('fading-out');
+
+      const self = this;
+      card.addEventListener('transitionend', function handler() {
+        card.removeEventListener('transitionend', handler);
+        expenses = expenses.filter(function(ex) { return ex.id !== id; });
+        rebuildList();
+      });
     });
   </script>
 </body>
